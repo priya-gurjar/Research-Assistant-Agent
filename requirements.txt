@@ -1,7 +1,7 @@
 openai 
 langchain==0.1.14 
 autogen==0.7.4
-chromadb==0.4.22 
+chromadb
 pymupdf==1.23.7 
 streamlit==1.31.1
 faiss-cpu 
@@ -9,4 +9,3 @@ pypdf
 tiktoken
 sentence-transformers
 together
-pysqlite3
