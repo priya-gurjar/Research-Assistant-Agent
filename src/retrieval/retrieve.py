@@ -1,7 +1,8 @@
 import chromadb
+import os
 from sentence_transformers import SentenceTransformer
 from typing import List, Dict
-
+CHROMA_DB_PATH = os.path.join(os.getcwd(), "data/chroma_db")
 # Load the sentence transformer model
 embedding_model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
@@ -11,7 +12,7 @@ def embed_query(query: str) -> List[float]:
 
 def retrieve_from_chroma(query: str, top_k: int = 5):
     """Retrieves top-k most relevant document chunks from ChromaDB."""
-    client = chromadb.PersistentClient(path="/Users/priyagurjar/Desktop/Machine learning/Research Assistant Agent /data/chroma_db")
+    client = chromadb.PersistentClient(path=CHROMA_DB_PATH)
     collection = client.get_collection(name="research_papers")
     
     query_embedding = embed_query(query)

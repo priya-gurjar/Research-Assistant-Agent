@@ -4,7 +4,7 @@ import tiktoken
 import chromadb
 from typing import List, Dict
 from sentence_transformers import SentenceTransformer
-
+CHROMA_DB_PATH = os.path.join(os.getcwd(), "data/chroma_db")
 # Load a local embedding model
 embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
 
@@ -39,7 +39,7 @@ def embed_text(text: str) -> List[float]:
 
 def store_in_chroma(chunks: List[Dict[str, str]]):
     """Stores text chunks and embeddings in ChromaDB."""
-    client = chromadb.PersistentClient(path="/Users/priyagurjar/Desktop/Machine learning/Research Assistant Agent /data/chroma_db")
+    client = chromadb.PersistentClient(path=CHROMA_DB_PATH)
     collection = client.get_or_create_collection(name="research_papers")
     
     for doc in chunks:

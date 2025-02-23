@@ -7,7 +7,7 @@ from src.ingestion.pdf_ingestion import ingest_pdfs
 from src.retrieval.retrieve import retrieve_documents  # Import retrieval function
 from src.retrieval.vector_store import generate_response  # Import LLM response generator
 
-TEMP_DIR="/Users/priyagurjar/Desktop/Machine learning/Research Assistant Agent /data/raw_papers"
+TEMP_DIR = os.path.join(os.getcwd(), "data/raw_papers")
 os.makedirs(TEMP_DIR, exist_ok=True)
 # Streamlit UI
 st.title("AI Research Assistant")
