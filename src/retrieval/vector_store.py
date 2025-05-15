@@ -33,7 +33,7 @@ def generate_response(query, top_k=3):
     
     client = Together(api_key=api_key)
     response = client.chat.completions.create(
-        model="meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo-128K",
+        model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free",
         messages=[{"role": "system", "content": "You are an AI assistant."}, 
                   {"role": "user", "content": prompt}],
         max_tokens=512,
